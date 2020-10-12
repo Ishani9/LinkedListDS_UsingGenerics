@@ -101,6 +101,22 @@ public class MyLinkedList {
 		return tempNode;
 	}
 	
+	/**
+	 * UC 6
+	 * 
+	 * @return
+	 */
+	@SuppressWarnings("rawtypes")
+	public INode popLast() {
+		INode tempNode = head;
+		while( !tempNode.getNext().equals(tail)) {
+			tempNode = tempNode.getNext();
+		}
+		this.tail = tempNode;
+		tempNode = tempNode.getNext();	
+		return tempNode;
+	}
+	
 	
 
 	@SuppressWarnings("rawtypes")
@@ -110,7 +126,7 @@ public class MyLinkedList {
 		while (tempNode.getNext() != null) {
 			myNodes.append(tempNode.getKey());
 			if (!tempNode.equals(tail)) {
-				myNodes.append("->");
+				myNodes.append(" -> ");
 			}
 			tempNode = tempNode.getNext();
 		}
