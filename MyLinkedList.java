@@ -88,6 +88,19 @@ public class MyLinkedList {
 		newNode.setNext(tempNode);
 	}
 	
+	/**
+	 * UC 5
+	 * 
+	 * @return
+	 */
+	
+	@SuppressWarnings("rawtypes")
+	public INode pop() {
+		INode tempNode = this.head;
+		this.head = head.getNext();
+		return tempNode;
+	}
+	
 	
 
 	@SuppressWarnings("rawtypes")
