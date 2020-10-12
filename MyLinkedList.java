@@ -30,6 +30,12 @@ public class MyLinkedList {
 	public MyLinkedList() {
 		this.head = null;
 	}
+	
+	/**
+	 * UC 2
+	 * 
+	 * @param newNode
+	 */
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void add(INode newNode) {
@@ -47,6 +53,12 @@ public class MyLinkedList {
 		}
 	}
 	
+	/**
+	 * UC 3
+	 * 
+	 * @param newNode
+	 */
+	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void append(INode newNode) {
 		if (this.head == null) {
@@ -61,6 +73,22 @@ public class MyLinkedList {
 
 		}
 	}
+	
+	/**
+	 * UC 4
+	 * 
+	 * @param myNode
+	 * @param newNode
+	 */
+	
+	@SuppressWarnings({ "rawtypes", "unused", "unchecked" })
+	public void insert(INode myNode, INode newNode) {
+		INode tempNode = myNode.getNext();
+		myNode.setNext(newNode);
+		newNode.setNext(tempNode);
+	}
+	
+	
 
 	@SuppressWarnings("rawtypes")
 	public void printLinkList() {
