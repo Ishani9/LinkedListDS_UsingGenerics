@@ -1,11 +1,10 @@
 package com.bl.assignment;
 
-public class MyNode<K> { 
+public class MyNode<K> implements INode <K> { 
 	
-	@SuppressWarnings("unused")
 	private K key;
 	@SuppressWarnings("rawtypes")
-	private MyNode next;
+	private INode next;
 
 	public MyNode(K key) { 
 		
@@ -13,14 +12,22 @@ public class MyNode<K> {
 		this.next = null;
 	}
 	
-	@SuppressWarnings("rawtypes")
-	public MyNode getNext() { 
+	public K getKey() {
+		return key;
+	}
+	
+	public void setKey(K key) {
+		this.key = key;
+	}
+
+
+	@SuppressWarnings("unchecked")
+	public INode<K> getNext() { 
 		
 		return next;
 	}
 	
-	@SuppressWarnings("rawtypes")
-	public void setNext (MyNode next) { 
+	public void setNext (INode<K> next) { 
 		
 		this.next = next;
 	}
