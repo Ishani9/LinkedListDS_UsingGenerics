@@ -28,5 +28,19 @@ public class MyLinkedListTest{
 		Assert.assertTrue(myLinkList.getHead().equals(myThirdNode) && myFirstNode.getNext() == null
 				&& myThirdNode.getNext().equals(mySecondNode) && mySecondNode.getNext().equals(myFirstNode));
 	}
+	
+	@Test
+	public void given3Numbers_WhenAppended_ShouldBeAddedToBottom() {
+		MyNode<Integer> myFirstNode = new MyNode<>(56);
+		MyNode<Integer> mySecondNode = new MyNode<>(30);
+		MyNode<Integer> myThirdNode = new MyNode<>(70);
+		MyLinkedList myLinkList = new MyLinkedList();
+		myLinkList.append(myFirstNode);
+		myLinkList.append(mySecondNode);
+		myLinkList.append(myThirdNode);
+		myLinkList.printLinkList();
+		Assert.assertTrue(myLinkList.getHead().equals(myFirstNode) && myFirstNode.getNext() == mySecondNode
+				&& myThirdNode.getNext() == null && mySecondNode.getNext().equals(myThirdNode));
+	}
 
 }
