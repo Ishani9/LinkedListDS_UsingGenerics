@@ -26,7 +26,7 @@ public class MyLinkedListTest{
 		myLinkList.add(mySecondNode);
 		myLinkList.add(myThirdNode);
 		myLinkList.printLinkList();
-		Assert.assertTrue(myLinkList.getHead().equals(myThirdNode) && myFirstNode.getNext() == null
+		Assert.assertTrue(myLinkList.getHead().equals(myThirdNode) && myLinkList.getTail() == myFirstNode && myFirstNode.getNext() == null
 				&& myThirdNode.getNext().equals(mySecondNode) && mySecondNode.getNext().equals(myFirstNode));
 	}
 	
@@ -41,7 +41,7 @@ public class MyLinkedListTest{
 		myLinkList.append(mySecondNode);
 		myLinkList.append(myThirdNode);
 		myLinkList.printLinkList();
-		Assert.assertTrue(myLinkList.getHead().equals(myFirstNode) && myFirstNode.getNext() == mySecondNode
+		Assert.assertTrue(myLinkList.getHead().equals(myFirstNode) && myLinkList.getTail() == myThirdNode && myFirstNode.getNext() == mySecondNode
 				&& myThirdNode.getNext() == null && mySecondNode.getNext().equals(myThirdNode));
 	}
 	
@@ -56,8 +56,24 @@ public class MyLinkedListTest{
 		myLinkList.add(myThirdNode);
 		myLinkList.insert(myThirdNode, mySecondNode);
 		myLinkList.printLinkList();
-		Assert.assertTrue(myLinkList.getHead().equals(myThirdNode) && myFirstNode.getNext() == null
+		Assert.assertTrue(myLinkList.getHead().equals(myThirdNode) && myLinkList.getTail() == myFirstNode && myFirstNode.getNext() == null
 				&& myThirdNode.getNext().equals(mySecondNode) && mySecondNode.getNext().equals(myFirstNode));
+	}
+	
+	//UC 6
+	@Test
+	public void given3Numbers_WhenDeletedFirst_ShouldDeleteFirst() {
+		MyNode<Integer> myFirstNode = new MyNode<>(56);
+		MyNode<Integer> mySecondNode = new MyNode<>(30);
+		MyNode<Integer> myThirdNode = new MyNode<>(70);
+		MyLinkedList myLinkList = new MyLinkedList();
+		myLinkList.append(myFirstNode);
+		myLinkList.append(mySecondNode);
+		myLinkList.append(myThirdNode);
+		myLinkList.pop();
+		myLinkList.printLinkList();
+		Assert.assertTrue(myLinkList.getHead().equals(mySecondNode) && myLinkList.getTail() == myThirdNode
+				&& myThirdNode.getNext() == null && mySecondNode.getNext().equals(myThirdNode));
 	}
 	
 	
