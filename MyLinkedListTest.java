@@ -8,8 +8,6 @@ public class MyLinkedListTest{
 	@Test
 	public void  givenNumber_WhenAdded_ShouldReturnHeadTail() {
 		MyNode<Integer> myFirstNode = new MyNode<>(70);
-		MyNode<Integer> mySecondNode = new MyNode<>(30);
-		MyNode<Integer> myThirdNode = new MyNode<>(56);
 		MyLinkedList myLinkList = new MyLinkedList();
 		myLinkList.add(myFirstNode);
 		Assert.assertTrue(myLinkList.getHead().equals(myFirstNode) && myLinkList.getTail().equals(myFirstNode));
@@ -118,6 +116,26 @@ public class MyLinkedListTest{
 		myLinkList.append(myThirdNode);
 		myLinkList.insertAfter(30, myFourthNode);
 		myLinkList.printLinkList();
+		Assert.assertTrue(mySecondNode.getNext().equals(myFourthNode));
+	}
+	
+	//UC 9
+	@Test
+	public void popSpecificMethodCalled_shouldDelete_specificElement() {
+		MyNode<Integer> myFirstNode = new MyNode<>(56);
+		MyNode<Integer> mySecondNode = new MyNode<>(30);
+		MyNode<Integer> myThirdNode = new MyNode<>(40);
+		MyNode<Integer> myFourthNode = new MyNode<>(70);		
+		MyLinkedList myLinkList = new MyLinkedList();
+		myLinkList.append(myFirstNode);
+		myLinkList.append(mySecondNode);
+		myLinkList.append(myThirdNode);
+		myLinkList.append(myFourthNode);
+		int size1 = myLinkList.printLinkList();
+		System.out.println("SIZE before deletion:" + size1);
+		myLinkList.popSpecific(myThirdNode);
+		int size = myLinkList.printLinkList();
+		System.out.println("SIZE after deletion:" + size);
 		Assert.assertTrue(mySecondNode.getNext().equals(myFourthNode));
 	}
 	
