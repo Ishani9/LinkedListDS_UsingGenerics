@@ -131,11 +131,11 @@ public class MyLinkedListTest{
 		myLinkList.append(mySecondNode);
 		myLinkList.append(myThirdNode);
 		myLinkList.append(myFourthNode);
-		int size1 = myLinkList.printLinkList();
-		System.out.println("SIZE before deletion:" + size1);
+		System.out.println("SIZE before deletion:" + myLinkList.size()+ "\n LIST:");
+		myLinkList.printLinkList();
 		myLinkList.popSpecific(myThirdNode);
-		int size = myLinkList.printLinkList();
-		System.out.println("SIZE after deletion:" + size);
+		System.out.println("SIZE after deletion:" + myLinkList.size() + "\n LIST: ");
+		myLinkList.printLinkList();
 		Assert.assertTrue(mySecondNode.getNext().equals(myFourthNode));
 	}
 	

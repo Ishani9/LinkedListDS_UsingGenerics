@@ -165,23 +165,33 @@ public class MyLinkedList {
 		return head;
 	}
 	
+	public int size() {
+		int count = 0;
+		INode node = head;
+		while(node.getNext() != null) {
+			count++;
+			node = node.getNext();
+		}
+		if(node.equals(tail)) {
+			count++;
+		}
+		return count;
+	}
+	
 
 	@SuppressWarnings("rawtypes")
-	public int printLinkList() {
+	public void printLinkList() {
 		StringBuffer myNodes = new StringBuffer("My Nodes : ");
 		INode tempNode = head;
-		int size = 1;
 		while (tempNode.getNext() != null) {
 			myNodes.append(tempNode.getKey());
 			if (!tempNode.equals(tail)) {
 				myNodes.append(" -> ");
-				size++;
 			}
 			tempNode = tempNode.getNext();
 		}
 		myNodes.append(tempNode.getKey());
 		System.out.println(myNodes);
-		return size;
 
 	}
 
