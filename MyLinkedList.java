@@ -117,6 +117,23 @@ public class MyLinkedList {
 		return tempNode;
 	}
 	
+	/**
+	 * UC 7
+	 * 
+	 * @param integer
+	 * @return
+	 */
+	@SuppressWarnings("rawtypes")
+	public INode search(Integer integer) {
+		INode temp = head;
+		while (!temp.getNext().equals(null)) {
+			if (temp.getKey().equals(integer))
+				break;
+			temp = temp.getNext();
+		}
+		return temp;
+	}
+	
 	
 
 	@SuppressWarnings("rawtypes")

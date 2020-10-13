@@ -90,7 +90,19 @@ public class MyLinkedListTest{
 		myLinkList.printLinkList();
 		Assert.assertTrue(myLinkList.getHead().equals(myFirstNode)  && myLinkList.getTail() == mySecondNode
 				&& myFirstNode.getNext() == mySecondNode);
-		//&& mySecondNode.getNext() == null
+	}
+	
+	///UC 7
+	@Test
+	public void given3Numbers_WhenSearchMethod_ShouldReturnElement() {
+		MyNode<Integer> myFirstNode = new MyNode<>(56);
+		MyNode<Integer> mySecondNode = new MyNode<>(30);
+		MyNode<Integer> myThirdNode = new MyNode<>(70);
+		MyLinkedList myLinkList = new MyLinkedList();
+		myLinkList.append(myFirstNode);
+		myLinkList.append(mySecondNode);
+		myLinkList.append(myThirdNode);
+		Assert.assertEquals(myLinkList.search(30) , mySecondNode);
 	}
 	
 
