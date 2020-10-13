@@ -134,6 +134,19 @@ public class MyLinkedList {
 		return temp;
 	}
 	
+	/**
+	 * UC 8
+	 * 
+	 * @param integer
+	 * @param newNode
+	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public void insertAfter(Integer integer, INode newNode) {
+		INode tempNode = search(integer);
+		newNode.setNext(tempNode.getNext());
+		tempNode.setNext(newNode);
+	}
+	
 	
 
 	@SuppressWarnings("rawtypes")
