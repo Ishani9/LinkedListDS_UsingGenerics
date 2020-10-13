@@ -147,21 +147,41 @@ public class MyLinkedList {
 		tempNode.setNext(newNode);
 	}
 	
+	/**
+	 * UC 9
+	 * 
+	 * @param myNode
+	 * @return
+	 */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public INode popSpecific(INode myNode) {
+		INode tempNode1 = head;
+		INode tempNode2 = head;
+		while(!tempNode1.getKey().equals(myNode.getKey()) && !tempNode2.equals(tail)) {
+			tempNode2 = tempNode1;
+			tempNode1 = tempNode1.getNext();
+		}
+		tempNode2.setNext(tempNode1.getNext());
+		return head;
+	}
 	
 
 	@SuppressWarnings("rawtypes")
-	public void printLinkList() {
+	public int printLinkList() {
 		StringBuffer myNodes = new StringBuffer("My Nodes : ");
 		INode tempNode = head;
+		int size = 1;
 		while (tempNode.getNext() != null) {
 			myNodes.append(tempNode.getKey());
 			if (!tempNode.equals(tail)) {
 				myNodes.append(" -> ");
+				size++;
 			}
 			tempNode = tempNode.getNext();
 		}
 		myNodes.append(tempNode.getKey());
 		System.out.println(myNodes);
+		return size;
 
 	}
 
