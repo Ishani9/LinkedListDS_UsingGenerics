@@ -105,5 +105,21 @@ public class MyLinkedListTest{
 		Assert.assertEquals(myLinkList.search(30) , mySecondNode);
 	}
 	
+	//UC 8
+	@Test
+	public void insertAfterMethodCalled_shouldInsert_afterGivenElement() {
+		MyNode<Integer> myFirstNode = new MyNode<>(56);
+		MyNode<Integer> mySecondNode = new MyNode<>(30);
+		MyNode<Integer> myThirdNode = new MyNode<>(70);
+		MyNode<Integer> myFourthNode = new MyNode<>(40);
+		MyLinkedList myLinkList = new MyLinkedList();
+		myLinkList.append(myFirstNode);
+		myLinkList.append(mySecondNode);
+		myLinkList.append(myThirdNode);
+		myLinkList.insertAfter(30, myFourthNode);
+		myLinkList.printLinkList();
+		Assert.assertTrue(mySecondNode.getNext().equals(myFourthNode));
+	}
+	
 
 }
