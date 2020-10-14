@@ -139,5 +139,22 @@ public class MyLinkedListTest{
 		Assert.assertTrue(mySecondNode.getNext().equals(myFourthNode));
 	}
 	
+	// UC 10
+	@Test
+	public void whenAddInOrderCalled_shouldAddInAscendingOrder() {
+		MyNode<Integer> myFirstNode = new MyNode<>(56);
+		MyNode<Integer> mySecondNode = new MyNode<>(30);
+		MyNode<Integer> myThirdNode = new MyNode<>(40);
+		MyNode<Integer> myfourthNode = new MyNode<>(70);
+		MyLinkedList myLinkedList = new MyLinkedList();
+		myLinkedList.addInOrder(myFirstNode);
+		myLinkedList.addInOrder(mySecondNode);
+		myLinkedList.addInOrder(myThirdNode);
+		myLinkedList.addInOrder(myfourthNode);
+		System.out.println("Linked List after adding in order : ");
+		myLinkedList.printLinkList();
+		Assert.assertTrue(mySecondNode.getNext().equals(myThirdNode) && myThirdNode.getNext().equals(myFirstNode));
+	}
+	
 
 }

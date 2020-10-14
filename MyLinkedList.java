@@ -178,7 +178,48 @@ public class MyLinkedList {
 		return count;
 	}
 	
-
+	/**
+	 * UC 10
+	 * 
+	 * @param newNode
+	 */
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public void addInOrder(INode newNode) {
+		INode temp = head;
+		if (head == null) { 
+			head = newNode;
+			tail = newNode;
+		} 
+		
+		else if(head.getKey().compareTo(newNode.getKey()) > 0) { 
+																	
+			newNode.setNext(temp);
+			head = newNode;
+		} 
+		
+		else if (tail.getKey().compareTo(newNode.getKey()) < 0) { 
+																	
+			tail.setNext(newNode);
+			tail = newNode;
+		} 
+		
+		else {
+			INode prev = head;
+			while (temp.getNext() != null && temp.getKey().compareTo(newNode.getKey()) < 0) {
+				prev = temp;
+				temp = temp.getNext();
+			}
+			newNode.setNext(prev.getNext());
+			prev.setNext(newNode);
+		}
+	}
+	
+	
+	/**
+	 * PRINT ELEMENTS
+	 * 
+	 */
 	@SuppressWarnings("rawtypes")
 	public void printLinkList() {
 		StringBuffer myNodes = new StringBuffer("My Nodes : ");
